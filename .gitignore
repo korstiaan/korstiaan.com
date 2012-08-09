@@ -1,4 +1,5 @@
 app/config.php
+app/cache
 web/assets/packages/
 web/assets/c/
 vendor/
