@@ -23,7 +23,8 @@ use Silex\Provider\TwigServiceProvider;
 require __DIR__.'/../vendor/autoload.php';
 
 $app = new Application();
-require __DIR__.'/config.php';
+
+false == getenv('K_TEST') ? require __DIR__.'/config.php' : require __DIR__.'/config.dist.php';
 
 /**
  * Application related dirs
