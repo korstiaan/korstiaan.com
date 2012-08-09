@@ -40,7 +40,7 @@ class ContactType extends AbstractType
      * (non-PHPdoc)
      * @see Symfony\Component\Form.AbstractType::getDefaultOptions()
      */
-    public function getDefaultOptions()
+    public function getDefaultOptions(array $options)
     {
         return array(
             'csrf_protection' => true,
