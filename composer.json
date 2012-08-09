@@ -1,0 +1,64 @@
+{
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name" : "twitter/bootstrap",
+				"version" : "2.0.4",
+				"source" : {
+					"url" : "https://github.com/twitter/bootstrap.git",
+					"type" : "git",
+					"reference" : "v2.0.4"
+				}
+			}
+		},
+        {
+            "type": "vcs",
+            "url": "https://github.com/korstiaan/Silex-Extensions"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/korstiaan/Silex-Extensions"
+        }
+    ],
+    "minimum-stability": "dev",
+	"require": {
+		"silex/silex": "1.0.*",
+		"twig/twig": ">=1.8,<2.0-dev",
+		"twitter/bootstrap" : "2.0.4",
+		"kriswallsmith/assetic": "1.0.3",
+		"leafo/lessphp" : "v0.3.5", 
+		"fate/Silex-Extensions": "dev-mdservice",
+		"knplabs/knp-menu": "dev-master",
+		"symfony/form": "2.1.*",
+		"symfony/twig-bridge": "2.1.*",
+		"symfony/config": "2.1.*",
+    	"symfony/translation": "2.1.*",
+    	"symfony/validator": "2.1.*",
+    	"symfony/finder": "2.1.*",
+    	"knplabs/console-service-provider": "dev-master",
+    	"symfony/process": "2.1.*",
+    	"swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev",
+    	"knplabs/knp-markdown-bundle": "*",
+    	"symfony/options-resolver": "2.1.*" 
+	},
+	"require-dev": {
+	 	"symfony/browser-kit": "2.1.*",
+	 	"symfony/css-selector": "2.1.*"
+	},
+	"scripts": {
+        "post-update-cmd": [
+            "Kors\\Com\\Composer\\Console::createSymlinks",
+            "Kors\\Com\\Composer\\Console::asseticDump"
+        ],
+        "post-install-cmd": [
+            "Kors\\Com\\Composer\\Console::createSymlinks",
+            "Kors\\Com\\Composer\\Console::asseticDump"
+        ]
+    },
+	"autoload": {
+        "psr-0": {
+            "Kors": "src/"
+        }
+    }
+}

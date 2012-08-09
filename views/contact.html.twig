@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+{% block _title %}Contact{% endblock _title %}
+{% block _content %}
+	<form class="form-horizontal" action="{{ action }}" method="post" novalidate="novalidate" {{ form_enctype(form) }}>
+	   	{{ form_errors(form) }}
+		{{ form_widget(form) }}
+		<div class="well"><button class="btn primary" type="submit">Save</button></div>
+	</form>
+{% endblock %}

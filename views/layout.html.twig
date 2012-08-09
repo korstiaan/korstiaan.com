@@ -1,0 +1,79 @@
+<!doctype html>
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+	<head>
+		{% block _stylesheets %}
+			{% stylesheets
+				'assets/css/main.css'
+			   	'assets/packages/bootstrap/less/bootstrap.less'
+			   	'assets/packages/bootstrap/less/responsive.less'
+			   filter='less,cssrewrite,?yui_css'
+			   output='assets/c/css.css'
+			%}
+			<link href="/{{ asset_url }}" type="text/css" rel="stylesheet" />
+			{% endstylesheets %}
+		{% endblock _stylesheets %}
+
+		<title>Korstiaan.com - {% block _title %}{% endblock _title %}</title>
+	</head>
+
+	<body class="home">
+    <div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="/">Korstiaan.com</a>
+				<div class="nav-collapse">
+					{% set menu = knp_menu_get('main_menu').setChildrenAttribute('class','nav') %}
+					{{ knp_menu_render(menu,{'currentClass': 'active'}) }}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="fork-me">
+		<a href="https://github.com/korstiaan/korstiaan.com"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+	</div>
+
+
+    <div class="container">
+        {% for type, alerts in app.session.flashbag.all %}
+        	{% for alert in alerts %}
+             <div class="alert alert-{{ type }}" >
+                 {{ alert | trans }}
+             </div>
+            {% endfor %}
+        {% endfor %}
+    	{% block _content %}{% endblock %}
+    </div>
+
+	{% block _javascripts %}
+		{% javascripts
+		    'http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js'
+		    'assets/packages/bootstrap/js/bootstrap-transition.js'
+	        'assets/packages/bootstrap/js/bootstrap-modal.js'
+	        'assets/packages/bootstrap/js/bootstrap-dropdown.js'
+	        'assets/packages/bootstrap/js/bootstrap-scrollspy.js'
+	        'assets/packages/bootstrap/js/bootstrap-tab.js'
+	        'assets/packages/bootstrap/js/bootstrap-tooltip.js'
+	        'assets/packages/bootstrap/js/bootstrap-popover.js'
+	        'assets/packages/bootstrap/js/bootstrap-alert.js'
+	        'assets/packages/bootstrap/js/bootstrap-button.js'
+	        'assets/packages/bootstrap/js/bootstrap-collapse.js'
+	        'assets/packages/bootstrap/js/bootstrap-carousel.js'
+	        'assets/packages/bootstrap/js/bootstrap-typeahead.js'
+	       filter="?yui_js"
+		   output='assets/c/js.js'
+		%}
+		<script src="/{{ asset_url }}" type="text/javascript"></script>
+		{% endjavascripts %}
+	{% endblock _javascripts %}
+
+	</body>
+</html>

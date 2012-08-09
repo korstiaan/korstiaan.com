@@ -1,0 +1,9 @@
+{% use 'Mail/contact.plain.twig' %}
+<html>
+<head>
+	<title>New contact message</title>
+</head>
+<body>
+{{ block('_content') | markdown}}
+</body>
+</html>
