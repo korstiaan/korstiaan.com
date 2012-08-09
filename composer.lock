@@ -1,5 +1,5 @@
 {
-    "hash": "38010c8ebe63d93eb3fd2541b5266ccb",
+    "hash": "59cd15d1c2ab028429705a252b16f362",
     "packages": [
         {
             "package": "doctrine/common",
@@ -60,8 +60,8 @@
         {
             "package": "silex/silex",
             "version": "dev-master",
-            "source-reference": "ee00393c33b3de861082602747a84d49897b9315",
-            "commit-date": "1344077943"
+            "source-reference": "6d7cf048c704c0c58276b01eccfacab4dd11d013",
+            "commit-date": "1344453846"
         },
         {
             "package": "swiftmailer/swiftmailer",
@@ -280,8 +280,8 @@
         {
             "package": "symfony/validator",
             "version": "dev-master",
-            "source-reference": "433474410c02a1db7b0ad02697dce82acc87f6e7",
-            "commit-date": "1344352623"
+            "source-reference": "81f8f3c61a42489bc548822137c584555d11247e",
+            "commit-date": "1344461638"
         },
         {
             "package": "twig/twig",
@@ -300,44 +300,7 @@
             "version": "2.0.4"
         }
     ],
-    "packages-dev": [
-        {
-            "package": "symfony/browser-kit",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/browser-kit",
-            "version": "dev-master",
-            "source-reference": "v2.1.0-RC1",
-            "commit-date": "1343564266"
-        },
-        {
-            "package": "symfony/css-selector",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/css-selector",
-            "version": "dev-master",
-            "source-reference": "v2.1.0-RC1",
-            "commit-date": "1342347231"
-        },
-        {
-            "package": "symfony/dom-crawler",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/dom-crawler",
-            "version": "dev-master",
-            "source-reference": "v2.1.0-RC1",
-            "commit-date": "1342347231"
-        }
-    ],
+    "packages-dev": null,
     "aliases": [
 
     ],

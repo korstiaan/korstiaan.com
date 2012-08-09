@@ -15,10 +15,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/korstiaan/Silex-Extensions"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/korstiaan/Silex-Extensions"
         }
     ],
     "minimum-stability": "dev",
