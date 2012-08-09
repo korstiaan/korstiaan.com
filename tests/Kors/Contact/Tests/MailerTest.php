@@ -70,7 +70,10 @@ class MailerTest extends \PHPUnit_Framework_TestCase
         $mailer->mailMessage($event);
         
         $this->assertEquals(1, count($spoolStub->getMessages()));
-        $msg = reset($spoolStub->getMessages());
+        
+        $msgs = $spoolStub->getMessages();
+        $msg  = reset($msgs);
+        
         $this->assertEquals('subject',$msg->getBody());
         $html = null;
         foreach ($msg->getChildren() as $child) {
