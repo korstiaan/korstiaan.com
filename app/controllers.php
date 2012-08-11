@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Silex\Application;
 
+/**
+ * @var Silex\Application $app
+ */
 $app->get('/', function(Application $app) {
     return $app['twig']->render('home.html.twig');
 })->bind('home');
