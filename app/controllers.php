@@ -1,5 +1,6 @@
 <?php
 
+use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Kors\Contact\Event\ContactEvent,
     Kors\Contact\Event\ContactEvents,
@@ -15,6 +16,7 @@ use Silex\Application;
  * @var Silex\Application $app
  */
 $app->get('/', function(Application $app) {
+    throw new \RuntimeException('');
     return $app['twig']->render('home.html.twig');
 })->bind('home');
 
@@ -41,4 +43,12 @@ $app->match('/contact', function(Request $request, Application $app) {
     ));
 })->method('GET|POST')
   ->bind('contact');
-  
+
+
+$app->error(function (\Exception $e, $code) use ($app) {
+    if (true === $app['debug']) {
+        return;
+    }
+    
+    return new Response($app['twig']->render(404 === $code ? 'Error/error404.html.twig' : 'Error/error.html.twig'), $code);
+});  

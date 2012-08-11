@@ -1,0 +1,6 @@
+{% extends 'layout.html.twig' %}
+{% block _title %}Page cannot be found{% endblock _title %}
+{% block _content %}
+<h1>Page cannot be found</h1>
+<p>The requested page <em>{{ app.request.pathInfo }}</em> cannot be found.</p>
+{% endblock _content %}
