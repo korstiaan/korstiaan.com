@@ -23,7 +23,7 @@ class ContactType extends AbstractType
             'required' => false,
         ));
         $builder->add('email', 'text', array(
-            'label'    => 'E-Mail',
+            'label'    => 'Email',
             'required' => false,
         ));
         $builder->add('subject', 'text', array(
