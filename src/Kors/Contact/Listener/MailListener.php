@@ -81,7 +81,8 @@ class MailListener implements EventSubscriberInterface
     /**
      * Mails message of given event with objects options
      *
-     * @param ContactEvent $event
+     * @param  ContactEvent  $event
+     * @return Swift_Message		the msg being send
      */
     public function mailMessage(ContactEvent $event)
     {
@@ -98,6 +99,7 @@ class MailListener implements EventSubscriberInterface
         ;
 
         $this->mailer->send($mailmsg);
+        return $mailmsg;
     }
 
     /**

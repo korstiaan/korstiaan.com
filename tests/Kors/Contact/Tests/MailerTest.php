@@ -23,8 +23,12 @@ class MailerTest extends \PHPUnit_Framework_TestCase
     
     public function testSwiftIsCalled()
     {
-        $swift  = $this->getMock('\Swift_Mailer', array('send'), array($this->getMock('\Swift_Transport')));
+        $swift  = $this->getMockBuilder('\Swift_Mailer')
+            ->disableOriginalConstructor()
+            ->getMock(); 
+            
         $twig   = $this->getMock('\Twig_Environment');
+        
         $mailer = new MailListener($swift, $twig, array(
         	'from'    => 'foo@example.com',
             'to'      => array('foo@example.com'),
@@ -46,9 +50,11 @@ class MailerTest extends \PHPUnit_Framework_TestCase
     
     public function testTemplates()
     {
-        $spoolStub = new SpoolStub();
-        $swift     = new \Swift_Mailer(new \Swift_SpoolTransport($spoolStub));
-        $twig      = new \Twig_Environment(
+        $swift  = $this->getMockBuilder('\Swift_Mailer')
+            ->disableOriginalConstructor()
+            ->getMock();
+            
+        $twig   = new \Twig_Environment(
             new \Twig_Loader_Filesystem(array(__DIR__.'/Fixtures')),
             array('auto_reload' => true));
             
@@ -67,12 +73,7 @@ class MailerTest extends \PHPUnit_Framework_TestCase
         
         $event   = new ContactEvent($contact);
              
-        $mailer->mailMessage($event);
-        
-        $this->assertEquals(1, count($spoolStub->getMessages()));
-        
-        $msgs = $spoolStub->getMessages();
-        $msg  = reset($msgs);
+        $msg  = $mailer->mailMessage($event);
         
         $this->assertEquals('subject',$msg->getBody());
         $html = null;
