@@ -12,12 +12,11 @@ class FunctionalTest extends WebTestCase
     {
         $app = require __DIR__.'/../../../../app/app.php';        
 
-        $app['debug'] = true;
         $app['session.test'] = true;
-        unset($app['exception_handler']);
         
         return $app;
     }
+    
     
     /**
      * @dataProvider getMenuTests
@@ -98,5 +97,34 @@ class FunctionalTest extends WebTestCase
         
         $this->assertEquals('This value is not a valid email address.', $error->filter('#contact_type_email')->nextAll()->eq(0)->filter('li')->text());
                  
+    }
+    
+    public function testError404Page()
+    {
+        $this->app['debug'] = false;
+        
+        $client  = $this->createClient();
+        
+        $crawler = $client->request('GET', '/foobar');
+        
+        $this->assertTrue($client->getResponse()->isNotFound());
+        
+        $this->assertEquals('/foobar', $crawler->filter('.container p em')->text());        
+    }
+    
+    public function testErrorOtherPage()
+    {
+        $this->app['debug'] = false;
+        
+        $this->app->get('/foobar', function() {
+            throw new \Exception('foobarcrux');
+        });
+        
+        $client  = $this->createClient();
+        
+        $crawler = $client->request('GET', '/foobar');
+        
+        $this->assertFalse($client->getResponse()->isOk());
+        $this->assertNotContains('foobarcrux', $client->getResponse()->getContent());
     }
 }
