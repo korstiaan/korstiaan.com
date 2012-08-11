@@ -2,8 +2,6 @@
 
 namespace Kors\Com\Tests;
 
-use Kors\Tests\SpoolStub;
-
 use Symfony\Component\DomCrawler\Crawler;
 
 use Silex\WebTestCase;
@@ -12,15 +10,12 @@ class FunctionalTest extends WebTestCase
 {
     public function createApplication()
     {
-        $app = require __DIR__.'/../../../../app/bootstrap.php';        
-        require __DIR__.'/../../../../app/controllers.php';
+        $app = require __DIR__.'/../../../../app/app.php';        
+
         $app['debug'] = true;
         $app['session.test'] = true;
         unset($app['exception_handler']);
         
-        $app['swiftmailer.spool'] = $app->share(function(){
-            return new SpoolStub();
-        });        
         return $app;
     }
     
@@ -69,6 +64,14 @@ class FunctionalTest extends WebTestCase
     
     public function testContactPage()
     {
+        $this->app['mailer'] = $this->getMockBuilder('\Swift_Mailer')
+            ->disableOriginalConstructor()
+            ->getMock(); 
+
+        $this->app['mailer']
+            ->expects($this->once())
+            ->method('send');
+
         $client  = $this->createClient();
         $client->followRedirects();
         
@@ -76,8 +79,6 @@ class FunctionalTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isOk());
 
         $form    = $crawler->selectButton('Save')->form();
-        
-        $this->assertEquals(0, count($this->app['swiftmailer.spool']->getMessages()));
         
         $success = $client->submit($form, array(
             'contact_type[name]'    => 'Foo Bar',
@@ -87,7 +88,6 @@ class FunctionalTest extends WebTestCase
         ));
         
         $this->assertRegExp('/Message successfully send/', $success->filter('.alert-success')->text());
-        $this->assertEquals(1, count($this->app['swiftmailer.spool']->getMessages()));
         
         $error = $client->submit($form, array(
             'contact_type[name]'    => 'Foo Bar',
