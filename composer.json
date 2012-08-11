@@ -11,11 +11,7 @@
 					"reference" : "v2.0.4"
 				}
 			}
-		},
-        {
-            "type": "vcs",
-            "url": "https://github.com/korstiaan/Silex-Extensions"
-        }
+		}
     ],
     "minimum-stability": "dev",
 	"require": {
@@ -24,7 +20,7 @@
 		"twitter/bootstrap" : "2.0.4",
 		"kriswallsmith/assetic": "1.0.3",
 		"leafo/lessphp" : "v0.3.5", 
-		"fate/Silex-Extensions": "dev-mdservice",
+		"fate/Silex-Extensions": "dev-master",
 		"knplabs/knp-menu": "dev-master",
 		"symfony/form": "2.1.*",
 		"symfony/twig-bridge": "2.1.*",
