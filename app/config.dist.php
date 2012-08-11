@@ -9,7 +9,7 @@ $app['dir.cache'] = __DIR__.'/../app/cache';
 
 $app['assetic.options'] = array(
     'debug'            => true,
-    'auto_dump_assets' => false,
+    'auto_dump_assets' => null,
 );
 
 $app['swiftmailer.options'] = array(
