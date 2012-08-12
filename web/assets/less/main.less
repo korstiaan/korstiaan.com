@@ -1,0 +1,46 @@
+@import "../packages/bootstrap/less/mixins.less";
+@import "../packages/bootstrap/less/variables.less";
+
+.navbar .nav-collapse .nav.main{
+	margin-right: 0px;
+}
+
+
+.form-horizontal.contact {
+	div.contact {
+		padding-top: 10px;
+		border: 1px solid #ccc;
+		.border-radius(5px);
+		margin-bottom: 10px;
+	}
+	label {
+		width: 60px;
+	}
+	.controls {
+		margin-left: 70px;
+	}
+}
+
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+.fork-me {
+	position: fixed; 
+	top: 0; 
+	right: 0; 
+	border: 0;
+	z-index: 9999;
+	display: block;
+}
+
+@media (max-width: 979px) {
+	body {
+		padding-top: 0px;
+		padding-bottom: 40px;
+	}
+	.fork-me {
+		display:none;
+	}
+}

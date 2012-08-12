@@ -30,7 +30,7 @@ class FunctionalTest extends WebTestCase
         $this->assertCount(1, $active);
         $this->assertEquals($text, trim($active->filter('> a')->eq(0)->text()));
         
-        $links = $crawler->filter('.navbar .nav a');
+        $links = $crawler->filter('.navbar .nav.main a');
         $this->assertCount(count($this->getMenuTests()), $links);
         foreach ($this->getMenuTests() as $k => $v) {
             $this->assertEquals($v[0], trim($links->eq($k)->text()));
@@ -77,7 +77,7 @@ class FunctionalTest extends WebTestCase
         $crawler = $client->request('GET', '/contact');
         $this->assertTrue($client->getResponse()->isOk());
 
-        $form    = $crawler->selectButton('Save')->form();
+        $form    = $crawler->selectButton('Send')->form();
         
         $success = $client->submit($form, array(
             'contact_type[name]'    => 'Foo Bar',

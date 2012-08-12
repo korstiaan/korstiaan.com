@@ -6,10 +6,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 	<head>
 		{% block _stylesheets %}
-			{% stylesheets
-				'assets/css/main.css'
+			{% stylesheets				
 			   	'assets/packages/bootstrap/less/bootstrap.less'
 			   	'assets/packages/bootstrap/less/responsive.less'
+			   	'assets/less/main.less'
 			   filter='less,cssrewrite,?yui_css'
 			   output='assets/c/css.css'
 			%}
@@ -31,8 +31,14 @@
 				</a>
 				<a class="brand" href="/">{{ app.name }}</a>
 				<div class="nav-collapse">
-					{% set menu = knp_menu_get('main_menu').setChildrenAttribute('class','nav') %}
+					{% set menu = knp_menu_get('main_menu').setChildrenAttribute('class','nav main') %}
 					{{ knp_menu_render(menu,{'currentClass': 'active'}) }}
+					<ul class="nav">
+						<li class="divider-vertical"></li>
+						<li><a href="https://github.com/korstiaan">Github</a>
+						<li><a href="http://www.linkedin.com/in/korstiaanderidder">LinkedIn</a>
+					</ul>
+					
 				</div>
 			</div>
 		</div>
