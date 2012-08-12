@@ -22,6 +22,8 @@ $ cp app/config.dist.php app/config.php
 $ vi app/config.php
 ```
 
+See the [Symfony documentation](http://symfony.com/doc/current/book/installation.html#configuration-and-setup) for setting up correct `app/cache` and `app/logs` permissions.
+
 # License
 
 Korstiaan.com is licensed under the MIT license.

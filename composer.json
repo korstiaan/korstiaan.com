@@ -32,6 +32,7 @@
     	"symfony/process": "2.1.*",
     	"swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev",
     	"knplabs/knp-markdown-bundle": "*",
+    	"monolog/monolog": ">=1.1.0",
     	"symfony/options-resolver": "2.1.*" 
 	},
 	"require-dev": {

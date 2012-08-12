@@ -1,5 +1,5 @@
 {
-    "hash": "7cb74e11a9341244414aee2fa0c5a830",
+    "hash": "77215955b909ec1228f3a12a9bc0c91d",
     "packages": [
         {
             "package": "doctrine/common",
@@ -38,6 +38,12 @@
         {
             "package": "leafo/lessphp",
             "version": "v0.3.5"
+        },
+        {
+            "package": "monolog/monolog",
+            "version": "dev-master",
+            "source-reference": "ae31045917db536eedee8c6b6abed5052d115763",
+            "commit-date": "1344607218"
         },
         {
             "package": "pimple/pimple",

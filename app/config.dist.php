@@ -5,7 +5,6 @@ $app['version']   = '1.0.0';
 
 //$app['debug']     = true;
 
-$app['dir.cache'] = __DIR__.'/../app/cache';
 
 $app['assetic.options'] = array(
     'debug'            => true,

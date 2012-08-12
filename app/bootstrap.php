@@ -1,4 +1,6 @@
 <?php
+use Monolog\Logger;
+use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Kors\Contact\Provider\ContactServiceProvider;
 use SilexExtension\MarkdownExtension;
@@ -25,14 +27,25 @@ require __DIR__.'/../vendor/autoload.php';
 $app = new Application();
 $app['catch_exceptions'] = true;
 
-false === getenv('K_TEST') ? require __DIR__.'/config.php' : require __DIR__.'/config.dist.php';
-
 /**
  * Application related dirs
  */
 $app['dir.vendor'] = __DIR__.'/../vendor';
 $app['dir.web']    = __DIR__.'/../web';
 $app['dir.app']    = __DIR__.'/../app';
+$app['dir.cache']  = __DIR__.'/../app/cache';
+$app['dir.logs']   = __DIR__.'/../app/logs';
+
+false === getenv('K_TEST') ? require __DIR__.'/config.php' : require __DIR__.'/config.dist.php';
+
+/**
+ * Logging
+ */
+$app->register(new MonologServiceProvider(), array(
+    'monolog.logfile' => $app['dir.logs'].'/app.log',
+    'monolog.name'	  => $app['name'],
+    'monolog.level'   => true === $app['debug'] ? Logger::DEBUG : Logger::WARNING,
+));
 
 /**
  * Swift mailer
