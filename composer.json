@@ -4,11 +4,11 @@
 			"type": "package",
 			"package": {
 				"name" : "twitter/bootstrap",
-				"version" : "2.0.4",
+				"version" : "2.1.0",
 				"source" : {
 					"url" : "https://github.com/twitter/bootstrap.git",
 					"type" : "git",
-					"reference" : "v2.0.4"
+					"reference" : "v2.1.0"
 				}
 			}
 		}
@@ -17,7 +17,7 @@
 	"require": {
 		"silex/silex": "1.0.*",
 		"twig/twig": ">=1.8,<2.0-dev",
-		"twitter/bootstrap" : "2.0.4",
+		"twitter/bootstrap" : "2.1.0",
 		"kriswallsmith/assetic": "1.0.3",
 		"leafo/lessphp" : "v0.3.5", 
 		"fate/Silex-Extensions": "dev-master",

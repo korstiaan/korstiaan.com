@@ -1,5 +1,5 @@
 {
-    "hash": "77215955b909ec1228f3a12a9bc0c91d",
+    "hash": "1dc3242036eee96015c5879023d7a5c5",
     "packages": [
         {
             "package": "doctrine/common",
@@ -303,7 +303,7 @@
         },
         {
             "package": "twitter/bootstrap",
-            "version": "2.0.4"
+            "version": "2.1.0"
         }
     ],
     "packages-dev": null,
