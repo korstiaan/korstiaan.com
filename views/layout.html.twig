@@ -52,7 +52,8 @@
     <div class="container">
         {% for type, alerts in app.session.flashbag.all %}
         	{% for alert in alerts %}
-             <div class="alert alert-{{ type }}" >
+             <div class="fade in alert alert-{{ type }}" >
+                 <button type="button" class="close" data-dismiss="alert">×</button>
                  {{ alert | trans }}
              </div>
             {% endfor %}

@@ -86,7 +86,7 @@ class FunctionalTest extends WebTestCase
         	'contact_type[content]' => 'Foo bar lorem',
         ));
         
-        $this->assertRegExp('/Message successfully send/', $success->filter('.alert-success')->text());
+        $this->assertRegExp('/Message successfully sent/', $success->filter('.alert-success')->text());
         
         $error = $client->submit($form, array(
             'contact_type[name]'    => 'Foo Bar',
