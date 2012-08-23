@@ -31,7 +31,7 @@ $app->match('/contact', function(Request $request, Application $app) {
 
         if ($form->isValid()) {
             $app['dispatcher']->dispatch(ContactEvents::SUBMIT, new ContactEvent($message));
-            $app['session']->getFlashBag()->add('success', 'Message successfully send');
+            $app['session']->getFlashBag()->add('success', 'Message successfully sent');
             return new RedirectResponse($app['url_generator']->generate('contact'));
         }
     }
